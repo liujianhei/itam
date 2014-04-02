@@ -22,13 +22,4 @@ ActiveRecord::Schema.define(version: 20140402103810) do
     t.datetime "updated_at"
   end
 
-  create_table "servers", force: true do |t|
-    t.string   "asset_number"
-    t.string   "sn"
-    t.string   "ip"
-    t.string   "idrac_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end
