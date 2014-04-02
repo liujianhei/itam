@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  asset_number: MyString
+  sn: MyString
+  ip: MyString
+  idrac_ip: MyString
+
+two:
+  asset_number: MyString
+  sn: MyString
+  ip: MyString
+  idrac_ip: MyString
