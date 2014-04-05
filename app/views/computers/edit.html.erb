@@ -1,0 +1,21 @@
+<h1>Edit</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@computer) do |f| %>
+
+      <%= f.label :asset_number %>
+      <%= f.text_field :asset_number %>
+
+      <%= f.label :sn %>
+      <%= f.text_field :sn %>
+
+      <%= f.label :ip %>
+      <%= f.text_field :sn %>
+
+      <%= f.label :idrac_ip %>
+      <%= f.text_field :idrac_ip %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

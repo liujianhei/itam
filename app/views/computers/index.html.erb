@@ -1,0 +1,26 @@
+<h1>All Computers</h1>
+<table id="products">
+  <tr>
+    <th>Asset Number</th>
+    <th>Serail Number</th>
+    <th>IP</th>
+    <th>Idrac_IP</th>
+    <th></th>
+  </tr>
+<% @computers.each do |computer| %>
+  <tr>
+    <td><%= link_to computer.asset_number, computer %></td>
+    <td><%= computer.sn %></td>
+    <td><%= computer.ip %></td>
+    <td><%= computer.idrac_ip %></td>
+    <td>| <%= link_to "delete", computer, method: :delete,
+                                  data: { confirm: "You sure?" } %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Import Computers</h2>
+<%= form_tag import_computers_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
