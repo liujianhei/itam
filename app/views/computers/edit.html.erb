@@ -15,6 +15,9 @@
       <%= f.label :idrac_ip %>
       <%= f.text_field :idrac_ip %>
 
+      <%= f.label :machine_cabinet %>
+      <%= collection_select(:computer, :machine_cabinet_id, MachineCabinet.all, :id, :number) %>
+
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
