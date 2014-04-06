@@ -6,14 +6,16 @@
     <th>IP</th>
     <th>Idrac_IP</th>
     <th></th>
+    <th></th>
   </tr>
 <% @computers.each do |computer| %>
   <tr>
-    <td><%= link_to computer.asset_number, computer %></td>
+    <td><%= computer.asset_number %></td>
     <td><%= computer.sn %></td>
     <td><%= computer.ip %></td>
     <td><%= computer.idrac_ip %></td>
-    <td>| <%= link_to "delete", computer, method: :delete,
+    <td>| <%= link_to "Show", computer %></td>
+    <td>| <%= link_to "Delete", computer, method: :delete,
                                   data: { confirm: "You sure?" } %></td>
   </tr>
 <% end %>

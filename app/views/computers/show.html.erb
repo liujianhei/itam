@@ -1,1 +1,7 @@
-<%= @computer.asset_number %>
+<ul>
+  <li><%= @computer.asset_number %></li>
+  <li><%= @computer.sn %></li>
+  <li><%= @computer.ip %></li>
+  <li><%= @computer.idrac_ip %></li>
+</ul>
+<%= link_to "Edit", edit_computer_path, id: @computer.id %>
