@@ -14,6 +14,7 @@ Itam::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
      resources :computers do
+       collection { post :delete_multiple }
        collection { post :import }
      end
 
