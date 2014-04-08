@@ -2,6 +2,10 @@ class ComputersController < ApplicationController
 
   def index
     @computers = Computer.all
+    respond_to do |format|
+      format.html
+      format.js
+    end 
   end
 
   def new
@@ -41,12 +45,15 @@ class ComputersController < ApplicationController
 
   def import
     Computer.import(params[:file])
-    redirect_to root_url
+    redirect_to computers_path
   end
 
   def delete_multiple
     Computer.where(id: params[:computer_ids]).destroy_all
-    redirect_to computers_url
+    respond_to do |format|
+      format.html { redirect_to computers_path }
+      format.js
+    end 
   end
 
   private
