@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406130933) do
+ActiveRecord::Schema.define(version: 20140410011040) do
 
   create_table "computers", force: true do |t|
     t.string   "asset_number"
@@ -23,17 +23,20 @@ ActiveRecord::Schema.define(version: 20140406130933) do
     t.integer  "machine_cabinet_id"
   end
 
+  create_table "computers_projects", force: true do |t|
+    t.integer "computer_id"
+    t.integer "project_id"
+  end
+
   create_table "machine_cabinets", force: true do |t|
     t.string   "number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "servers", force: true do |t|
-    t.string   "asset_number"
-    t.string   "sn"
-    t.string   "ip"
-    t.string   "idrac_ip"
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
