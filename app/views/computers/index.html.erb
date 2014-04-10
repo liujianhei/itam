@@ -7,6 +7,7 @@
     <th>Serail Number</th>
     <th>IP</th>
     <th>Project Name</th>
+    <th>Machie Cabinet</th>
     <th>Idrac_IP</th>
     <th></th>
     <th></th>
@@ -18,6 +19,7 @@
     <td><%= computer.sn %></td>
     <td><%= computer.ip %></td>
     <td><%= computer.projects.map { |project| project.name } %></td>
+    <td><%= {if computer.machine_cabinet.nil?; ""; else computer.machine_cabinet.name;} %></td>
     <td><%= computer.idrac_ip %></td>
     <td>| <%= link_to "Edit", edit_computer_path(id: computer.id) %></td>
     <td>| <%= link_to "Delete", computer, method: :delete,

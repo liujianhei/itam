@@ -59,6 +59,6 @@ class ComputersController < ApplicationController
   private
 
     def computer_params
-      params.require(:computer).permit(:asset_number, :sn, :ip,:idrac_ip)
+      params.require(:computer).permit(:asset_number, :sn, :ip,:idrac_ip, :machie_cabinet_id)
     end
 end
