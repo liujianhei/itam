@@ -18,8 +18,8 @@
     <td><%= link_to computer.asset_number, computer %></td>
     <td><%= computer.sn %></td>
     <td><%= computer.ip %></td>
-    <td><%= computer.projects.map { |project| project.name } %></td>
-    <td><%= {if computer.machine_cabinet.nil?; ""; else computer.machine_cabinet.name;} %></td>
+    <td><%= (computer.projects.map { |project| project.name }).join() %></td>
+    <td><%= mc_number_for(computer) %></td>
     <td><%= computer.idrac_ip %></td>
     <td>| <%= link_to "Edit", edit_computer_path(id: computer.id) %></td>
     <td>| <%= link_to "Delete", computer, method: :delete,
