@@ -18,6 +18,9 @@
       <%= f.label :machine_cabinet %>
       <%= collection_select(:computer, :machine_cabinet_id, MachineCabinet.all, :id, :number) %>
 
+      <%= f.label :Projects %>
+      <%= render 'computers/form' %>
+
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

@@ -1,0 +1,6 @@
+<% for project in Project.find(:all) %>
+<div>
+  <%= check_box_tag "computer[project_ids][]", project.id, @computer.projects.include?(project) %>
+  <%= project.name %>
+</div>
+<% end %>
