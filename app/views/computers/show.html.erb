@@ -1,7 +1,10 @@
-<ul class="unstyled inline">
+<ul class="unstyled">
   <li><%= @computer.asset_number %></li>
   <li><%= @computer.sn %></li>
   <li><%= @computer.ip %></li>
   <li><%= @computer.idrac_ip %></li>
+  <li><%= mc_number_for(@computer) %></li>
+  <li><%= (@computer.projects.map { |project| project.name }).join(",") %></li>
 </ul>
-<%= link_to "Edit", edit_computer_path, id: @computer.id %>
+<%= link_to "Edit", edit_computer_path, id: @computer.id %> | 
+<%= link_to "All", computers_path %>

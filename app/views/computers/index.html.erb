@@ -21,8 +21,8 @@
     <td><%= (computer.projects.map { |project| project.name }).join(",") %></td>
     <td><%= mc_number_for(computer) %></td>
     <td><%= computer.idrac_ip %></td>
-    <td>| <%= link_to "Edit", edit_computer_path(id: computer.id) %></td>
-    <td>| <%= link_to "Delete", computer, method: :delete,
+    <td><%= link_to "Edit", edit_computer_path(id: computer.id) %></td>
+    <td><%= link_to "Delete", computer, method: :delete,
                                   data: { confirm: "You sure?" } %></td>
   </tr>
 <% end %>
