@@ -1,0 +1,13 @@
+<h1>New MachineCabinet</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@machine_cabinet) do |f| %>
+
+      <%= f.label :number %>
+      <%= f.text_field :number %>
+
+      <%= f.submit "Create new machine_cabinet", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

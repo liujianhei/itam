@@ -17,6 +17,7 @@ Itam::Application.routes.draw do
        collection { post :delete_multiple }
        collection { post :import }
      end
+     resources :machine_cabinets
 
   # Example resource route with options:
   #   resources :products do
