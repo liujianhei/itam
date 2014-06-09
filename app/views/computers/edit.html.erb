@@ -18,6 +18,8 @@
       <%= f.label :machine_cabinet %>
       <%= collection_select(:computer, :machine_cabinet_id, MachineCabinet.all, :id, :number) %>
 
+      <%= link_to "Create a new machine_cabinet", new_machine_cabinet_path, remote: true, :method => :get, class: "newmachinecabinet" %>
+
       <%= f.label :Projects %>
       <%= render 'computers/form' %>
 
