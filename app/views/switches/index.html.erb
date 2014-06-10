@@ -1,0 +1,27 @@
+<h1>Listing switches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @switches.each do |switch| %>
+      <tr>
+        <td><%= switch.name %></td>
+        <td><%= link_to 'Show', switch %></td>
+        <td><%= link_to 'Edit', edit_switch_path(switch) %></td>
+        <td><%= link_to 'Destroy', switch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Switch', new_switch_path %>

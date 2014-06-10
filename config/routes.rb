@@ -1,4 +1,12 @@
 Itam::Application.routes.draw do
+  resources :applications
+
+  resources :switches
+
+  resources :sas
+
+  resources :models
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

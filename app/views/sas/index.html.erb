@@ -1,0 +1,27 @@
+<h1>Listing sas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sas.each do |sa| %>
+      <tr>
+        <td><%= sa.name %></td>
+        <td><%= link_to 'Show', sa %></td>
+        <td><%= link_to 'Edit', edit_sa_path(sa) %></td>
+        <td><%= link_to 'Destroy', sa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sa', new_sa_path %>

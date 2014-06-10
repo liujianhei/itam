@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410011040) do
+ActiveRecord::Schema.define(version: 20140610145853) do
 
   create_table "computers", force: true do |t|
     t.string   "asset_number"
@@ -34,9 +34,27 @@ ActiveRecord::Schema.define(version: 20140410011040) do
     t.datetime "updated_at"
   end
 
+  create_table "models", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", force: true do |t|
     t.string   "name"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sas", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "switches", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
