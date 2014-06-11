@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610145853) do
+ActiveRecord::Schema.define(version: 20140611091411) do
+
+  create_table "applications", force: true do |t|
+    t.string   "name"
+    t.string   "reference"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "computers", force: true do |t|
     t.string   "asset_number"
@@ -21,11 +28,25 @@ ActiveRecord::Schema.define(version: 20140610145853) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "machine_cabinet_id"
+    t.integer  "model_id"
+    t.integer  "sa_id"
+    t.integer  "switch_id"
+    t.string   "switch_port"
+    t.string   "hardware_info"
+    t.string   "mac_addr"
+    t.string   "expired_at"
+    t.integer  "location_id",        default: 1
   end
 
   create_table "computers_projects", force: true do |t|
     t.integer "computer_id"
     t.integer "project_id"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "machine_cabinets", force: true do |t|

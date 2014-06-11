@@ -1,4 +1,6 @@
 Itam::Application.routes.draw do
+  resources :locations
+
   resources :applications
 
   resources :switches

@@ -8,7 +8,15 @@
     <th>IP</th>
     <th>Project Name</th>
     <th>Machie Cabinet</th>
-    <th>Idrac_IP</th>
+    <th>Idrac IP</th>
+    <th>Model</th>
+    <th>SA</th>
+    <th>Switch</th>
+    <th>Switch Port</th>
+    <th>Hardware Info</th>
+    <th>Mac Addr</th>
+    <th>Expired At</th>
+    <th>Location</th>
     <th></th>
     <th></th>
   </tr>
@@ -21,6 +29,14 @@
     <td><%= (computer.projects.map { |project| project.name }).join(",") %></td>
     <td><%= mc_number_for(computer) %></td>
     <td><%= computer.idrac_ip %></td>
+    <td><%= computer.model.name %></td>
+    <td><%= computer.sa.name %></td>
+    <td><%= computer.switch.name %></td>
+    <td><%= computer.switch_port %></td>
+    <td><%= computer.hardware_info %></td>
+    <td><%= computer.mac_addr %></td>
+    <td><%= computer.expired_at %></td>
+    <td><%= computer.location %></td>
     <td><%= link_to "Edit", edit_computer_path(id: computer.id) %></td>
     <td><%= link_to "Delete", computer, method: :delete,
                                   data: { confirm: "You sure?" } %></td>
