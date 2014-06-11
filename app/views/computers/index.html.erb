@@ -36,7 +36,7 @@
     <td><%= computer.hardware_info %></td>
     <td><%= computer.mac_addr %></td>
     <td><%= computer.expired_at %></td>
-    <td><%= computer.location %></td>
+    <td><%= computer.location.name %></td>
     <td><%= link_to "Edit", edit_computer_path(id: computer.id) %></td>
     <td><%= link_to "Delete", computer, method: :delete,
                                   data: { confirm: "You sure?" } %></td>
