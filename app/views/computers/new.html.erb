@@ -1,8 +1,8 @@
-<h1>New</h1>
-<div class="row">
-  <div class="span6 offset3">
+<h1>Edit</h1>
+    <div class="row">
     <%= form_for(@computer) do |f| %>
 
+      <div class="span6 offset3">
       <%= f.label :asset_number %>
       <%= f.text_field :asset_number %>
 
@@ -17,10 +17,41 @@
 
       <%= f.label :machine_cabinet %>
       <%= collection_select(:computer, :machine_cabinet_id, MachineCabinet.all, :id, :number) %>
+      <%= link_to image_tag("icon_addlink.gif"), new_machine_cabinet_path, remote: true, :method => :get, class: "newmachinecabinet" %>
 
-      <%= f.label :Project %>
-      <%= select_tag :project_id, options_for_select(Project.all.collect {|project| [project.name, project.id]}, @project_list),:multiple => true, :prompt => 'Select Project' %>
-      <%= f.submit "Create new item", class: "btn btn-large btn-primary" %>
+      <%= f.label :Projects %>
+      <%= render 'computers/form' %>
+
+      <%= f.label :model %>
+      <%= collection_select(:computer, :model_id, Model.all, :id, :name) %>
+
+      </div>
+
+      <div class="span6 offset666666">
+
+      <%= f.label :System_administrator %>
+      <%= collection_select(:computer, :sa_id, Sa.all, :id, :name) %>
+
+      <%= f.label :switch %>
+      <%= collection_select(:computer, :switch_id, Switch.all, :id, :name) %>
+
+      <%= f.label :switch_port %>
+      <%= f.text_field :switch_port %>
+
+      <%= f.label :hardware_info %>
+      <%= f.text_field :hardware_info %>
+
+      <%= f.label :mac_addr %>
+      <%= f.text_field :mac_addr %>
+
+      <%= f.label :expired_at %>
+      <%= f.text_field :expired_at %>
+
+      <%= f.label :location %>
+      <%= collection_select(:computer, :location_id, Location.all, :id, :name) %>
+      <br />
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      </div>
     <% end %>
-  </div>
-</div>
+    </div>
