@@ -1,7 +1,7 @@
 class ComputersController < ApplicationController
 
   def index
-    @computers = Computer.all
+    @computers = Computer.paginate(:per_page => 10, page: params[:page])
     respond_to do |format|
       format.html
       format.js

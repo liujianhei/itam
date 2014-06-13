@@ -17,7 +17,7 @@
 
       <%= f.label :machine_cabinet %>
       <%= collection_select(:computer, :machine_cabinet_id, MachineCabinet.all, :id, :number) %>
-      <%= link_to image_tag("icon_addlink.gif"), new_machine_cabinet_path, remote: true, :method => :get, class: "newmachinecabinet" %>
+      <%= link_to image_tag("icon_addlink.gif"), new_machine_cabinet_path, :method => :get, class: "newmachinecabinet" %>
 
       <%= f.label :Projects %>
       <%= render 'computers/form' %>
@@ -55,3 +55,11 @@
       </div>
     <% end %>
     </div>
+<script>
+$(".newmachinecabinet").popupWindow({ 
+height:500, 
+width:800, 
+top:50, 
+left:50 
+}); 
+</script>
