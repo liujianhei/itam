@@ -5,9 +5,19 @@ class Computer < ActiveRecord::Base
   belongs_to :switch
   belongs_to :location
   has_and_belongs_to_many :projects
+
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       Computer.create! row.to_hash
     end
   end
+
+def self.search(search)
+  if search
+    find(:all, :conditions => ['asset_number LIKE ?', "%#{search}%"])
+  else
+    find(:all)
+  end
+end
+
 end
