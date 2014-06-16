@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
