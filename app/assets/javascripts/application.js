@@ -15,3 +15,9 @@
 //= require dataTables/jquery.dataTables
 //= require turbolinks
 //= require_tree .
+$(function() {
+  $("#computers_search input").keyup(function() {
+    $.get($("#computers_search").attr("action"), $("#computers_search").serialize(), null, "script");
+    return false;
+  });
+});
