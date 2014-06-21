@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  machine_cabinet_id: 1
+  model_id: 1
+  sa_id: 1
+  switch_id: 1
+  location_id: 1
+
+two:
+  machine_cabinet_id: 1
+  model_id: 1
+  sa_id: 1
+  switch_id: 1
+  location_id: 1
