@@ -2,7 +2,8 @@ class ComputersController < ApplicationController
 
   def index
     #@computers = Computer.paginate(:per_page => 10, page: params[:page])
-    @computers = Computer.search(params[:search])
+    @search = Search.new
+    @computers = @computers ||= find_computers
     respond_to do |format|
       format.html
       format.js
@@ -62,4 +63,28 @@ class ComputersController < ApplicationController
     def computer_params
       params.require(:computer).permit(:asset_number, :sn, :ip,:idrac_ip, :machine_cabinet_id, {project_ids: [] })
     end
+
+def find_computers
+  Computer.find(:all, :conditions => conditions)
+end
+
+def machine_cabinet_conditions
+  ["computers.machine_cabinet_id = ?", @search.machine_cabinet_id] unless @search.machine_cabinet_id.blank?
+end
+
+def conditions
+  [conditions_clauses.join(' AND '), *conditions_options]
+end
+
+def conditions_clauses
+  conditions_parts.map { |condition| condition.first }
+end
+
+def conditions_options
+  conditions_parts.map { |condition| condition[1..-1] }.flatten
+end
+
+def conditions_parts
+  private_methods(false).grep(/_conditions$/).map { |m| send(m) }.compact
+end
 end
