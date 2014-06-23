@@ -4,6 +4,7 @@ class ComputersController < ApplicationController
     #@computers = Computer.paginate(:per_page => 10, page: params[:page])
     @search = Search.new
     @computers = @computers ||= find_computers
+    logger.debug "haha in index"
     respond_to do |format|
       format.html
       format.js
@@ -69,22 +70,27 @@ def find_computers
 end
 
 def machine_cabinet_conditions
-  ["computers.machine_cabinet_id = ?", @search.machine_cabinet_id] unless @search.machine_cabinet_id.blank?
+  logger.debug "haha in  1 #{params[:search][:machine_cabinet_id]}"
+  ["computers.machine_cabinet_id = ?", params[:search][:machine_cabinet_id] ] unless params[:search][:machine_cabinet_id].blank?
 end
 
 def conditions
+  logger.debug "haha in conditions"
   [conditions_clauses.join(' AND '), *conditions_options]
 end
 
 def conditions_clauses
+  logger.debug "haha in conditions_clauses"
   conditions_parts.map { |condition| condition.first }
 end
 
 def conditions_options
+  logger.debug "haha in conditions_options"
   conditions_parts.map { |condition| condition[1..-1] }.flatten
 end
 
 def conditions_parts
+  logger.debug "haha in conditions_parts"
   private_methods(false).grep(/_conditions$/).map { |m| send(m) }.compact
 end
 end

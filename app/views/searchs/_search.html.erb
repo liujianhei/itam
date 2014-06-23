@@ -1,19 +1,19 @@
     <%= form_for(@search, url: computers_path, method: :get) do |f| %>
 
       <%= f.label :machine_cabinet %>
-      <%= collection_select(:search, :machine_cabinet_id, MachineCabinet.all, :id, :number, {include_blank: 'None'}) %>
+      <%= collection_select(:search, :machine_cabinet_id, MachineCabinet.all, :id, :number, {include_blank: ''}) %>
 
       <%= f.label :model %>
-      <%= collection_select(:search, :model_id, Model.all, :id, :name, {include_blank: 'None'}) %>
+      <%= collection_select(:search, :model_id, Model.all, :id, :name, {include_blank: ''}) %>
 
       <%= f.label :System_administrator %>
-      <%= collection_select(:search, :sa_id, Sa.all, :id, :name, {include_blank: 'None'}) %>
+      <%= collection_select(:search, :sa_id, Sa.all, :id, :name, {include_blank: ''}) %>
 
       <%= f.label :switch %>
-      <%= collection_select(:search, :switch_id, Switch.all, :id, :name, {include_blank: 'None'}) %>
+      <%= collection_select(:search, :switch_id, Switch.all, :id, :name, {include_blank: ''}) %>
 
       <%= f.label :location %>
-      <%= collection_select(:search, :location_id, Location.all, :id, :name, {include_blank: 'None'}) %>
+      <%= collection_select(:search, :location_id, Location.all, :id, :name, {include_blank: ''}) %>
       <br />
 
       <%= f.submit "search", class: "btn btn-large btn-primary" %>
