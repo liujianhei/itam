@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
   $("#computers").dataTable( {
+    searching: false,
     paging: false,
     scrollY: 400,
     scrollX: 400,

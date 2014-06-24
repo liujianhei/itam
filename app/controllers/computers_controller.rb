@@ -3,7 +3,12 @@ class ComputersController < ApplicationController
   def index
     #@computers = Computer.paginate(:per_page => 10, page: params[:page])
     @search = Search.new
-    @computers = @computers ||= find_computers
+    if params[:search]
+      @computers = @computers ||= find_computers
+      @search = Search.new(search_params)
+    else
+      @computers = Computer.all
+    end
     logger.debug "haha in index"
     respond_to do |format|
       format.html
@@ -65,6 +70,10 @@ class ComputersController < ApplicationController
       params.require(:computer).permit(:asset_number, :sn, :ip,:idrac_ip, :machine_cabinet_id, {project_ids: [] })
     end
 
+    def search_params
+      params.require(:search).permit(:machine_cabinet_id, :model_id, :sa_id, :switch_id, :location_id)
+    end
+
 def find_computers
   Computer.find(:all, :conditions => conditions)
 end
@@ -72,6 +81,26 @@ end
 def machine_cabinet_conditions
   logger.debug "haha in  1 #{params[:search][:machine_cabinet_id]}"
   ["computers.machine_cabinet_id = ?", params[:search][:machine_cabinet_id] ] unless params[:search][:machine_cabinet_id].blank?
+end
+
+def model_conditions
+  logger.debug "haha in  1 #{params[:search][:machine_cabinet_id]}"
+  ["computers.model_id = ?", params[:search][:model_id] ] unless params[:search][:model_id].blank?
+end
+
+def sa_conditions
+  logger.debug "haha in  1 #{params[:search][:machine_cabinet_id]}"
+  ["computers.sa_id = ?", params[:search][:sa_id] ] unless params[:search][:sa_id].blank?
+end
+
+def switch_conditions
+  logger.debug "haha in  1 #{params[:search][:machine_cabinet_id]}"
+  ["computers.switch_id = ?", params[:search][:switch_id] ] unless params[:search][:switch_id].blank?
+end
+
+def location_conditions
+  logger.debug "haha in  1 #{params[:search][:machine_cabinet_id]}"
+  ["computers.location_id = ?", params[:search][:location_id] ] unless params[:search][:location_id].blank?
 end
 
 def conditions
